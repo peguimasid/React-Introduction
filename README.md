@@ -186,5 +186,5 @@ import App from './App';
 render(<App />, document.getElementById('app'));
 ```
 
-Se rodarmos nossa aplicaçāo agora veremos nosso `Hello World` la, dessa vez renderizado utilizando o ***React***.
+Se rodarmos nossa aplicaçāo agora veremos nosso `Hello World` la, dessa vez renderizado utilizando um componente do ***React***.
 
