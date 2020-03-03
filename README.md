@@ -5,14 +5,14 @@
 1. É uma biblioteca para contruçāo de interfaces
 2. Utilizado para construcao de ***Single-Page Applications*** (SPA)
 3. Tudo fica dentro do JavaScript (CSS, HTML, Imagens)
-4. ***React***: Biblioteca de contrucao de interfaces React
+4. ***React***: Biblioteca de contruçāo de interfaces React
 5. ***ReactJS***: React no Browser (Web)
 6. ***React Native***: React em Mobile
 
 ### Vantagens
 
-1. Organizacao do Código que se da por ***Componentizaçāo***.
-2. Divisāo de Responsabilidades, ou seja, o ***Backend*** só fica responsalvel pelas regras de negocio, e o ***Frontend*** pela interface.
+1. Organizaçāo do Código que se da por ***Componentizaçāo***.
+2. Divisāo de Responsabilidades, ou seja, o ***Backend*** só fica responsavel pelas regras de negócio, e o ***Frontend*** pela interface.
 3. O ***Mobile*** e o ***Web*** podem usar o mesmo ***Backend*** (API REST).
 4. Programaçāo Declarativa
 
@@ -161,9 +161,9 @@ por
 
 `<div id='app'></div>`
 
-Ai se formos e rodarmos a aplicacao com `yarn dev` nosso `Hello World` estara la do mesmo jeito pois agora utilizamos o ***React*** para renderizar nosso texto.
+Ai se formos e rodarmos a aplicaçāo com `yarn dev` nosso `Hello World` estara la do mesmo jeito pois agora utilizamos o ***React*** para renderizar nosso texto.
 
-Agora dentro de `src` criamos um arquivo chamado `App.js` que sera nosso primeiro componente da aplicacao, o chamado ***"Componente Raiz"***.
+Agora dentro de `src` criamos um arquivo chamado `App.js` que sera nosso primeiro componente da aplicaçāo, o chamado ***"Componente Raiz"***.
 
 Dentro de `App.js`:
 
