@@ -21,6 +21,6 @@
 1. O browser nāo entende todo esse código que passamos no React.
 2. O ***Babel*** pega esse código JS e converte de uma forma que o browser entenda.
 ### O Webpack possui varias funções:
-  1- Criaçao do bundle, que é um arquivo com todo códifo da nossa aplicação.
+  1. Criaçao do bundle, que é um arquivo com todo códifo da nossa aplicação.
   2. Ensinar ao JavaScript como importar arquivos CSS, Imagens e etc.
   3. Live reload com Webpack Dev Server.
