@@ -1,6 +1,6 @@
 # Introducao ao React
 
-## Conceitos do React 
+## Aula 1 - Conceitos do React 
 
 1. É uma biblioteca para contruçāo de interfaces
 2. Utilizado para construcao de ***Single-Page Applications*** (SPA)
@@ -25,7 +25,7 @@
   2. Ensinar ao JavaScript como importar arquivos CSS, Imagens e etc.
   3. Live reload com Webpack Dev Server.
 
-## Configurando estrutura
+## Aula 2 - Configurando estrutura
 
 1. Criamos uma pasta para o projeto.
 2. Rodamos `yarn init -y`
@@ -139,3 +139,52 @@ e o outro `script` ficara assim para quando formos rodar online nossa aplicacao:
 `"build": "webpack --mode production",`
 
 e se rodarmos agora `yarn dev` e entrarmos em `localhost:8080` nosso projeto estara rodando la e nos retornara nosso alerta e qualquer atualizacao que fizermos no arquivo ele atualizara automaticamente sem precisarmos reiniciar o servidor.
+
+## Aula 3 - Criando componente raiz
+
+O que vamos fazer agora é finalmente comecar a utilizar o ***React*** na nossa aplicaçāo.
+
+Vamos em `src > index.js`, excluimos tudo que tava la e adicionamos as configurações:
+
+```
+import React from 'react';
+import { render } from 'react-dom';
+
+render(<h1>Hello World</h1>, document.getElementById('app'));
+```
+
+e no `public > index.html` substituimos:
+
+`<h1>Hello World</h1>`
+
+por 
+
+`<div id='app'></div>`
+
+Ai se formos e rodarmos a aplicacao com `yarn dev` nosso `Hello World` estara la do mesmo jeito pois agora utilizamos o ***React*** para renderizar nosso texto.
+
+Agora dentro de `src` criamos um arquivo chamado `App.js` que sera nosso primeiro componente da aplicacao, o chamado ***"Componente Raiz"***.
+
+Dentro de `App.js`:
+
+```
+import React from 'react';
+
+function App() {
+  return <h1>Hello World</h1>
+}
+
+export default App;
+```
+
+Vamos no `index.js`:
+
+```
+...
+import App from './App';
+...
+render(<App />, document.getElementById('app'));
+```
+
+Se rodarmos nossa aplicaçāo agora veremos nosso `Hello World` la, dessa vez renderizado utilizando o ***React***.
+
