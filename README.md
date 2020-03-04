@@ -236,8 +236,6 @@ Depois vamos em `src > App.js`, importamos a imagem:
 
 ```
 import <nome que vai dar pra imagem> from './assets/<nome da imagem>'
-
-
 ```
 ***Exemplo***: `import image from './assets/mobile.png';`
 
