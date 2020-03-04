@@ -188,3 +188,66 @@ render(<App />, document.getElementById('app'));
 
 Se rodarmos nossa aplicaçāo agora veremos nosso `Hello World` la, dessa vez renderizado utilizando um componente do ***React***.
 
+
+## Aula 4 - Importando CSS
+
+Agora vamos colocar um pouco de ***CSS*** na nossa aplicaçāo e para isso vamos adicionar mais 2 loaders.
+
+`yarn add style-loader css-loader -D`
+
+Agora vamo em `webpack.config.js` e dentro de `rules` adicionamos essa nova:
+
+```
+{
+  test: /\.css$/,
+  use: [
+    { loader: 'style-loader' },
+    { loader: 'css-loader' }
+  ]
+}
+```
+
+Agora dentro de `src` criamos um arquivo `App.css` e adicionamos um estilo lá dentro, depois vamos em `src > App.js` e adicionamos:
+
+`import './App.css'`
+
+se iniciarmos o servidor agora veremos nosso estilo aplicado na página.
+
+## Aula 5 - Importando imagens
+
+Vamos importar agora um arquivo de imagem e para isso precisamos de mais um loader.
+
+`yarn add file-loader -D`
+
+Agora vamo em `webpack.config.js` e adicionamo mais uma `rule`:
+
+```
+{
+  test: /.*\.(gif|png|jpe?g)$/i,
+  use: {
+    loader: 'file-loader'
+  }
+}
+```
+
+Agora dentro de `src` criamos uma pasta `assets` para colocarmos nossas imagens e la dentro colocamos uma imagem qualquer.
+
+Depois vamos em `src > App.js`, importamos a imagem:
+
+```
+import <nome que vai dar pra imagem> from './assets/<nome da imagem>'
+
+EX: import image from './assets/mobile.png';
+
+```
+
+e a `function App()` vai ficar assim:
+
+```
+function App() {
+  return <img src={<nome que deu pra imagem>} />
+  EX: return <img src={image} />
+}
+```
+
+se iniciarmos o servidor veremos nossa imagem lá.
