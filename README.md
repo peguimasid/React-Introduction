@@ -329,4 +329,4 @@ plugins: [
     '@babel/plugins-proposal-class-properties'
   ]
 ```
-Vamos aprender a listar os atrinutos passados dentro de `state` na ***Aula 7***
+Vamos aprender a listar os atributos passados dentro de `state` na ***Aula 7***
