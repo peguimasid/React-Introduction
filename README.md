@@ -249,3 +249,84 @@ function App() {
 ***Exemplo***: `return <img src={image} />`
 
 se iniciarmos o servidor veremos nossa imagem lá.
+
+## Aula 6 - Class Components
+
+Podemos escrever um componente através de uma `function()` ou também através de uma ***Class*** que é o que vamos fazer:
+
+primeiro vamos dentro de `src` e criamos uma pasta chamada `components` e dentro dela criamos um arquivo chamado `TechList.js` onde colocaremos um exemplo de lista.
+
+Dentro de `TechList.js`:
+
+```
+import React, { Component } from 'react'
+
+class List extends Component {
+  render() {
+    return (
+      <ul>
+        <li>Node.js</li>
+        <li>ReactJS</li>
+        <li>React Native</li>
+      </ul>
+    )
+  }
+}
+
+export default TechList;
+```
+
+Agora vamos em `src > App.js` e importamos a `TechList`
+
+`import TechList from './components/TechList'`
+
+e a nossa `function App()` ficará assim:
+
+```
+function App() {
+  return <TechList />
+}
+```
+
+se formos agora no navegador veremos nossa `TechList` lá.
+
+Podemos passar a `TechList` assim tambem:
+
+```
+import React, { Component } from 'react'
+
+class TechList extends Component {
+  state = {
+    techs: [
+      'Node.js',
+      'ReactJS',
+      'React Native'
+    ]
+  }
+
+  render() {
+    return (
+      <ul>
+        <li>Node.js</li>
+        <li>ReactJS</li>
+        <li>React Native</li>
+      </ul>
+    )
+  }
+}
+
+export default TechList;
+```
+
+Mas pra isso precisamos intalar um outro plugin:
+
+`yarn add @babel/plugin-proposal-class-properties`
+
+E vamos depois dentro de `babel.config.js` e adicionamos:
+
+```
+plugins: [
+    '@babel/plugins-proposal-class-properties'
+  ]
+```
+Vamos aprender a listar os atrinutos passados dentro de `state` na ***Aula 7***
