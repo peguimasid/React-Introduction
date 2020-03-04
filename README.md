@@ -239,7 +239,7 @@ import <nome que vai dar pra imagem> from './assets/<nome da imagem>'
 
 
 ```
-***EX***: `import image from './assets/mobile.png';`
+***Exemplo***: `import image from './assets/mobile.png';`
 
 e a `function App()` vai ficar assim:
 
@@ -248,7 +248,6 @@ function App() {
   return <img src={<nome que deu pra imagem>} />
 }
 ```
-
-***EX***: `return <img src={image} />`
+***Exemplo***: `return <img src={image} />`
 
 se iniciarmos o servidor veremos nossa imagem lá.
