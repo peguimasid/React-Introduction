@@ -346,7 +346,7 @@ render() {
  ```
  Isso pega o estado e faz um `map` nele, ou seja, separa cada elemento da ***Array*** em uma variavel propria chamada `tech` e fazemos um `li` pra cada `tech`.
 
- Agora vamos fazer um `input` que adiciona itens na nossa lista, mas se simplesmente colocarmos o `input` abaixo da `ul` ele dara um erro pois temos que ter uma `div` ou uma fragment tag (`<> </>`) em volta de todo nosso codigo. Veja o codigo abaixo e veja a explicaçāo para cada passo tomado. *** Tire os comentarios ***
+ Agora vamos fazer um `input` que adiciona itens na nossa lista, mas se simplesmente colocarmos o `input` abaixo da `ul` ele dara um erro pois temos que ter uma `div` ou uma fragment tag (`<> </>`) em volta de todo nosso codigo. Veja o codigo abaixo e veja a explicaçāo para cada passo tomado. ***Tire os comentarios***
 
  ```
 class TechList extends Component {    
