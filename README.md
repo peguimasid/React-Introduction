@@ -333,7 +333,7 @@ Vamos aprender a listar os atributos passados dentro de `state` na ***Aula 7***
 
 ## Aula 7 - Estado & Imutabilidade
 
-Para podermos referenciar o `state` que passamos na ultima aula temo que passar assim dentro da `<ul>`:
+Para podermos referenciar o `state` que passamos na ultima aula temos que passar assim dentro da `<ul>`:
 
 ```
 render() {
@@ -394,5 +394,63 @@ class TechList extends Component {
 }
  ```
 
- Vamos por passos, primeiro ali no metodo `render()` nos passamos uma `form` por volta de todo conteudo ***HTML*** mas podia ser uma `div` ou `<> </>` depois nos criamos um `input`que tem um metodo `handleInputChange` que armazena o que digitarmos dentro dele com dentro de `newTech` com o metodo `this.setState()` depois temos um metodo `handleSubmit()` que primeiro previne qualquer comportamento padrao que o `onSubmit()` possa ter com o `e.preventDefault()` e depois nos usamos o `this.setState()` e passamos o valor que queremos alterar que é `techs` passamos todas as `techs` que ja estavam na ***Array*** e adicionamos a nova `this.state.newTech` e passamos o valor do `input` para vazio novamente. Lembrando que quando estamos tentando alterar algo dentro do `state` temos que passaro `setState()` e a `function` como sendo uma ***Arrow Function*** `= e =>` pois se nao nao conseguiremos acessar o valor de `this` dentro da `function`
+ Vamos por passos, primeiro ali no metodo `render()` nos passamos uma `form` por volta de todo conteudo ***HTML*** mas podia ser uma `div` ou `<> </>` depois nos criamos um `input`que tem um metodo `handleInputChange` que armazena o que digitarmos dentro dele com dentro de `newTech` com o metodo `this.setState()` depois temos um metodo `handleSubmit()` que primeiro previne qualquer comportamento padrao que o `onSubmit()` possa ter com o `e.preventDefault()` e depois nos usamos o `this.setState()` e passamos o valor que queremos alterar que é `techs` passamos todas as `techs` que ja estavam na ***Array*** e adicionamos a nova `this.state.newTech` e passamos o valor do `input` para vazio novamente. Lembrando que quando estamos tentando alterar algo dentro do `state` temos que passaro `setState()` e a `function` como sendo uma ***Arrow Function*** `= e =>` pois se nao nao conseguiremos acessar o valor de `this` dentro da `function`.
 
+ ## Aula 8 - Removendo itens do estado
+
+Vamos agora remover algo de dentro da ***Array*** e para isso precisamos fazer o seguinte no nosso codigo, o render que estava assim:
+
+```
+render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <ul>
+          {this.state.techs.map(tech => <li key={tech}>{tech}</li>)}
+        </ul>
+        <input
+         type="text"
+         onChange={this.handleInputChange}
+         value={this.state.newTech}
+        />
+        <button type="submit">Enviar</button>
+      </form>
+    )
+  }
+```
+
+vai ficar assim:
+
+```
+render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <ul>
+          {this.state.techs.map(tech => (
+          <li key={tech}>
+            {tech}
+           * <button 
+           *   onClick={ () => this.handleDelete(tech)} 
+           *   type="button">Remover</button>
+            </li>
+          ))}
+        </ul>
+        <input
+         type="text"
+         onChange={this.handleInputChange}
+         value={this.state.newTech}
+        />
+        <button type="submit">Enviar</button>
+      </form>
+    )
+  }
+```
+
+Depois disso criamos uma ***Function*** `handleDelete`:
+
+```
+handleDelete = (tech) => {
+    this.setState({ techs: this.state.techs.filter(t => t !== tech)})
+  }
+```
+
+O que estamos fazendo ali é adicionar um botao que chama a function `handleDelete` ao clicarmos ela passa uma `tech` pra essa function e a mesma filtra passando todas a `techs` novamente menos aquela que removemos.
