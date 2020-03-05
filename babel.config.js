@@ -4,6 +4,6 @@ module.exports = {
     "@babel/preset-react"
   ],
   plugins: [
-    '@babel/plugins-proposal-class-properties'
+    '@babel/plugin-proposal-class-properties'
   ]
 }
