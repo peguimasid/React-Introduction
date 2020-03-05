@@ -454,3 +454,63 @@ handleDelete = (tech) => {
 ```
 
 O que estamos fazendo ali é adicionar um botao que chama a function `handleDelete` ao clicarmos ela passa uma `tech` pra essa function e a mesma filtra passando todas a `techs` novamente menos aquela que removemos.
+
+## Aula 9 - Propriedades do React
+
+Vamos substituir os `<li>` por um componente que vai renderizar eles:
+
+Primeiro vamos criar dentro de `src > components` um novo arquivo `TechItem.js`
+
+Dentro de `TechItem.js`:
+
+```
+import React from 'react'
+
+function TechItem ({ tech, onDelete}) {
+  return(
+    <li>
+       {tech}
+    <button onClick={onDelete} type="button">Remover</button>
+    </li>
+  )
+}
+
+export default TechItem;
+```
+
+E a nossa `ul` do `Techlist` que estava assim:
+
+```
+...
+import TechItem from './TechItem';
+...
+```
+
+```
+<ul>
+   {this.state.techs.map(tech => (
+   <li key={tech}>
+     {tech}
+     <button 
+       onClick={ () => this.handleDelete(tech)} 
+       type="button">Remover</button>
+     </li>
+   ))}
+</ul>
+```
+Vai ficar assim:
+
+```
+<ul>
+  {this.state.techs.map(tech => (
+    <TechItem 
+      key={tech} // Identificador
+      tech={tech} // parametro que passamos na funçao map()
+      onDelete={() => this.handleDelete(tech)} // metodo handleDelete
+      /> 
+    ))}
+</ul>
+```
+Quando vamos criar um componente temos que passar os parametros e funções dele (como propriedades) para o outro componente reconhecer e fazemos isso dentro tag `<TechItem />`, observe que os parametros `tech` e `onDelete` passamos como parametros tambem dentro do arquivo `TechItem.js`, o `key` so passamos por ser obrigatorio para identificaçāo do elemento.
+
+
