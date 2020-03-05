@@ -346,7 +346,7 @@ render() {
  ```
  Isso pega o estado e faz um `map` nele, ou seja, separa cada elemento da ***Array*** em uma variavel propria chamada `tech` e fazemos um `li` pra cada `tech`.
 
- Agora vamos fazer um `input` que adiciona itens na nossa lista, mas se simplesmente colocarmos o `input` abaixo da `ul` ele dara um erro pois temos que ter uma `div` ou uma fragment tag (`<> </>`) envolta de todo nosso codigo. Veja o codigo abaixo e veja a explicaçāo para cada passo tomado.
+ Agora vamos fazer um `input` que adiciona itens na nossa lista, mas se simplesmente colocarmos o `input` abaixo da `ul` ele dara um erro pois temos que ter uma `div` ou uma fragment tag (`<> </>`) em volta de todo nosso codigo. Veja o codigo abaixo e veja a explicaçāo para cada passo tomado.
 
  ```
 class TechList extends Component {    
@@ -366,10 +366,13 @@ class TechList extends Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    this.setState({  *DEFINE UM NOVO VALOR PRA UM ESTADO*
+       this.setState({  *DEFINE UM NOVO VALOR PRA UM ESTADO*
+
        techs: [ ...this.state.techs, this.state.newTech ], 
        *ESTADO QUE QUER ALTERAR (techs) E O NOVO VALOR*
-       newTech: ''    
+
+       newTech: ''
+       *REDEFININDO O VALOR DE newTech*    
     })
   }
 
@@ -391,5 +394,5 @@ class TechList extends Component {
 }
  ```
 
- Vamos por passos, primeiro ali no metodo `render()` nos passamos uma `form` por volta de todo conteudo ***HTML*** mas podia ser uma `div` ou `<> </>` depois nos criamos um `input`que tem um metodo `handleInputChange` que armazena o que digitarmos dentro dele com dentro de `newTech` com o metodo `this.setState()` depois temos um metodo `handleSubmit()` que primeiro previne qualquer comportamento padrao que o `onSubmit()` possa ter com o `e.preventDefault()` e depois nos usamos o `this.setState()` e passamos o valor que queremos alterar que é `techs` passamos todas as `techs` que ja estavam na ***Array*** e adicionamos a nova `this.state.newTech` e passamos o valor do `input` para vazio novamente. Lembrando que quando estamos tentando alterar algo dentro do `state` temos que passar a `function` como sendo uma ***Arrow Function*** `= e =>` pois se nao nao conseguiremos acessar o valor de `this` dentro da `function`
+ Vamos por passos, primeiro ali no metodo `render()` nos passamos uma `form` por volta de todo conteudo ***HTML*** mas podia ser uma `div` ou `<> </>` depois nos criamos um `input`que tem um metodo `handleInputChange` que armazena o que digitarmos dentro dele com dentro de `newTech` com o metodo `this.setState()` depois temos um metodo `handleSubmit()` que primeiro previne qualquer comportamento padrao que o `onSubmit()` possa ter com o `e.preventDefault()` e depois nos usamos o `this.setState()` e passamos o valor que queremos alterar que é `techs` passamos todas as `techs` que ja estavam na ***Array*** e adicionamos a nova `this.state.newTech` e passamos o valor do `input` para vazio novamente. Lembrando que quando estamos tentando alterar algo dentro do `state` temos que passaro `setState()` e a `function` como sendo uma ***Arrow Function*** `= e =>` pois se nao nao conseguiremos acessar o valor de `this` dentro da `function`
 
