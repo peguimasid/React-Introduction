@@ -513,4 +513,96 @@ Vai ficar assim:
 ```
 Quando vamos criar um componente temos que passar os parametros e funções dele (como propriedades) para o outro componente reconhecer e fazemos isso dentro tag `<TechItem />`, observe que os parametros `tech` e `onDelete` passamos como parametros tambem dentro do arquivo `TechItem.js`, o `key` so passamos por ser obrigatorio para identificaçāo do elemento.
 
+## Aula 10 - Default Props & PropTypes
+
+***DefaultProps*** - Vamos supor que a gente coloque o componente `<TechItem />` e esqueca de passar a propriedade `tech` dentro dele, podemos ai usar um conceito chamdo `defaultProps` que quando nao passarmos um valor pra uma propriedade ela assume um valor padrao que a gente esolher.
+
+***Exemplo***:
+
+Passamos dentro de `TechList` o `<TechItem />` e nao passamos a propriedade `tech` pra ele. 
+
+Em `TechItem`:
+
+```
+TechItem.defaultProps = {
+  tech: `Oculto` // QUANDO NAO INFORMARMOS O VALOR SERA `OCULTO`
+}
+```
+
+Ai em `TechList` passamos o componente `TechItem` para ser renderizado mais uma vez so que dessa vez sem passarmos propriedades nenhuma:
+
+`<TechItem />`
+
+ai se olharmos no navegador estara la escrito `Oculto`.
+
+***PropTypes*** - É uma forma de validar as propriedades que nosso componente recebe.
+
+Vamos supor que entre um novo desenvolvedor no time e que na nossa funçāo `onDelte` do tech item `function TechItem ({ tech, onDelete}) {` ele passe um texto ao inves de uma funçāo, seria bom o ***React*** avisar para ele que aquilo deveria ser uma funçāo.
+
+Para isso precisamos instalar uma biblioteca chamada ***PropTypes***:
+
+`yarn add prop-types`
+
+Depois importamos ela dentro de `TechItem.js`:
+
+`import PropTypes from 'prop-types'`
+
+E para usar fazemos assim por exemplo:
+
+`TechItem.js`
+
+```
+TechItem.propTypes = {
+  tech: PropTypes.string,
+  onDelete: PropTypes.func.isRequired,
+}
+```
+ai estamos dizendo que a propriedade `tech` é do tipo ***String*** e a `onDelete` é uma funcao e é obrigatoria, e se esquecermos de passar o valor ou passarmos o valor de uma forma errada ele vai avisar a gente no console.
+
+## Aula 11 - Ciclo de vida do componente
+
+Podemos entender o ciclo de vida do componente como o momento em que ele ***Entra na tela*** e o ciclo se encerra a partir do momento em que ele ***Sai da tela***, temos três metodos principais que vamos usar no inicio para o ciclo de vida, sendo eles:
+
+```
+// Executado assim que o componente aparece na tela
+  componentDidMount() {
+
+  }
+
+  // Executado sempre que houver alterações nas props ou estado
+  componentDidUpdate(prevProps, prevState) {
+    // this.props, this.state
+  }
+
+  // Executado quando o componente deixa de existir
+  componentWillUnmount() {
+
+  }
+```
+***Exemplo*** - Vamos usar esses metodos agora para usar o `localStorage`, ou seja, armazenar os dados no banco de dados do navegador.
+
+Para isso usaremos primeiro o metodo `componentDidUpdate`:
+
+```
+componentDidUpdate(_, prevState) {
+    if(prevState.techs !== this.state.techs){
+      localStorage.setItem('techs', JSON.stringify(this.state.techs))
+    }
+  }
+```
+
+depois o `componentDidMount`:
+
+```
+componentDidMount() {
+    const techs = localStorage.getItem('techs')
+
+    if (techs) {
+      this.setState({ techs: JSON.parse(techs)})
+    }
+  }
+```
+
+o que estamos fazendo é ali no `componentDidUpdate` verificar se mudou alguma coisa na ***Array*** de techs para poder atualizar e se tiver mudado nos armazenamos e depois ali no `componentDidMount` pegar essas techs armazenadas e colocar numa ariavel nova chamada `techs` e depois exibir com o `parse()` do ***JSON***
+
 
