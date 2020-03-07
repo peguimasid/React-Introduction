@@ -515,7 +515,7 @@ Quando vamos criar um componente temos que passar os parametros e funções dele
 
 ## Aula 10 - Default Props & PropTypes
 
-***DefaultProps*** - Vamos supor que a gente coloque o componente `<TechItem />` e esqueca de passar a propriedade `tech` dentro dele, podemos ai usar um conceito chamdo `defaultProps` que quando nao passarmos um valor pra uma propriedade ela assume um valor padrao que a gente esolher.
+***DefaultProps*** - Vamos supor que a gente coloque o componente `<TechItem />` e esqueca de passar a propriedade `tech` dentro dele, podemos ai usar um conceito chamdo `defaultProps` que quando nao passarmos um valor pra uma propriedade ela assume um valor padrao que a gente escolhe.
 
 ***Exemplo***:
 
@@ -603,6 +603,6 @@ componentDidMount() {
   }
 ```
 
-o que estamos fazendo é ali no `componentDidUpdate` verificar se mudou alguma coisa na ***Array*** de techs para poder atualizar e se tiver mudado nos armazenamos e depois ali no `componentDidMount` pegar essas techs armazenadas e colocar numa ariavel nova chamada `techs` e depois exibir com o `parse()` do ***JSON***
+o que estamos fazendo é ali no `componentDidUpdate` verificar se mudou alguma coisa na ***Array*** de techs para poder atualizar e se tiver mudado nos armazenamos. Depois ali no `componentDidMount` pegar essas techs armazenadas e colocar numa ariavel nova chamada `techs` e depois exibir com o `parse()` do ***JSON***
 
 
