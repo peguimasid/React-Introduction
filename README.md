@@ -605,4 +605,7 @@ componentDidMount() {
 
 o que estamos fazendo é ali no `componentDidUpdate` verificar se mudou alguma coisa na ***Array*** de techs para poder atualizar e se tiver mudado nos armazenamos. Depois ali no `componentDidMount` pegar essas techs armazenadas e colocar numa ariavel nova chamada `techs` e depois exibir com o `parse()` do ***JSON***
 
+## Aula 12 - Debugando React com DevTools
 
+
+Se formos na extensões do Google Chrome e instalarmos uma chamada ***React Developer Tools*** nos teremos acesso a um inspecionario no console do navegador (Command + Option + J) que fala somente sobre nossos componentes do react!
